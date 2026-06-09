@@ -35,6 +35,7 @@ body {
     opacity: 0.9;
 }
 
+/* SECTION */
 .section {
     padding: 60px 20px;
     text-align: center;
@@ -81,14 +82,40 @@ h2 {
     border: 2px solid gold;
 }
 
-/* CONTACT */
-.contact {
+/* FORM */
+input, textarea {
+    width: 80%;
+    max-width: 400px;
+    padding: 10px;
+    margin: 5px;
+    border: 1px solid gold;
     background: #111;
-    padding: 50px;
+    color: white;
+    border-radius: 5px;
 }
 
-a {
-    color: gold;
+button {
+    padding: 10px 20px;
+    background: gold;
+    border: none;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+/* WHATSAPP */
+.whatsapp {
+    text-align: center;
+    margin: 20px;
+}
+
+.whatsapp a {
+    background: #25D366;
+    padding: 15px 25px;
+    color: white;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: bold;
 }
 </style>
 
@@ -103,28 +130,26 @@ a {
 </div>
 
 <!-- WHATSAPP -->
-<div style="text-align:center; margin:20px;">
-<a href="https://wa.me/918209503939?text=Hi%20DP%20Editszz%2C%20I%20want%20to%20book%20a%20wedding%20shoot"
-style="background:#25D366;padding:15px 25px;color:white;border-radius:30px;text-decoration:none;">
-💬 Book on WhatsApp
-</a>
+<div class="whatsapp">
+    <a href="https://wa.me/918209503939?text=Hi%20DP%20Editszz%2C%20I%20want%20to%20book%20a%20wedding%20shoot">
+        💬 Book on WhatsApp
+    </a>
 </div>
 
 <!-- ABOUT -->
 <div class="section">
     <h2>About Us</h2>
-    <p>We create cinematic wedding stories and luxury edits.</p>
+    <p>We create cinematic wedding stories and luxury edits that capture emotions forever.</p>
 </div>
 
 <!-- SERVICES -->
 <div class="section">
     <h2>Our Services</h2>
-    <div class="services">
 
+    <div class="services">
         <div class="card" onclick="showGallery('wedding')">Wedding Photography</div>
         <div class="card" onclick="showGallery('cinematic')">Cinematic Editing</div>
         <div class="card" onclick="showGallery('reels')">Instagram Reels</div>
-
     </div>
 </div>
 
@@ -139,16 +164,16 @@ style="background:#25D366;padding:15px 25px;color:white;border-radius:30px;text-
     <h2>Book Wedding Shoot</h2>
 
     <form action="https://formsubmit.co/dev636741@gmail.com" method="POST">
-        <input type="text" name="name" placeholder="Name" required><br><br>
-        <input type="text" name="phone" placeholder="Phone" required><br><br>
-        <input type="email" name="email" placeholder="Email" required><br><br>
-        <textarea name="message" placeholder="Message"></textarea><br><br>
+        <input type="text" name="name" placeholder="Name" required><br>
+        <input type="text" name="phone" placeholder="Phone" required><br>
+        <input type="email" name="email" placeholder="Email" required><br>
+        <textarea name="message" placeholder="Message"></textarea><br>
         <button type="submit">Book Now</button>
     </form>
 </div>
 
 <!-- CONTACT -->
-<div class="contact">
+<div class="section">
     <h2>Contact</h2>
     <p>Email: dev636741@gmail.com</p>
     <p>Instagram: @dp_editszz</p>
@@ -158,15 +183,18 @@ style="background:#25D366;padding:15px 25px;color:white;border-radius:30px;text-
 const data = {
     wedding: [
         "https://images.unsplash.com/photo-1523438885200-e635ba2c371e",
-        "https://images.unsplash.com/photo-1519741497674-611481863552"
+        "https://images.unsplash.com/photo-1519741497674-611481863552",
+        "https://images.unsplash.com/photo-1529634896284-3a61e3d3c8f0"
     ],
     cinematic: [
         "https://images.unsplash.com/photo-1504196606672-aef5c9cefc92",
-        "https://images.unsplash.com/photo-1521334884684-d80222895322"
+        "https://images.unsplash.com/photo-1521334884684-d80222895322",
+        "https://images.unsplash.com/photo-1504384308090-c894fdcc538d"
     ],
     reels: [
         "https://images.unsplash.com/photo-1518770660439-4636190af475",
-        "https://images.unsplash.com/photo-1522202176988-66273c2fd55f"
+        "https://images.unsplash.com/photo-1522202176988-66273c2fd55f",
+        "https://images.unsplash.com/photo-1523966211575-eb4a01e7dd51"
     ]
 };
 
@@ -177,14 +205,14 @@ function showGallery(type){
     box.innerHTML = "";
 
     data[type].forEach(img=>{
-        let i = document.createElement("img");
-        i.src = img;
-        box.appendChild(i);
+        let image = document.createElement("img");
+        image.src = img;
+        box.appendChild(image);
     });
 
     if(type==="wedding") title.innerText="Wedding Photography";
     if(type==="cinematic") title.innerText="Cinematic Editing";
-    if(type==="reels") title.innerText="Instagram Reels";
+    if(type==="reels") title.innerText="Instagram Reels Editing";
 }
 
 showGallery("wedding");
