@@ -82,6 +82,21 @@ h2 {
     border: 2px solid gold;
 }
 
+/* BUTTONS */
+.whatsapp {
+    text-align: center;
+    margin: 20px;
+}
+
+.whatsapp a {
+    background: #25D366;
+    padding: 15px 25px;
+    color: white;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
 /* FORM */
 input, textarea {
     width: 80%;
@@ -103,19 +118,9 @@ button {
     border-radius: 5px;
 }
 
-/* WHATSAPP */
-.whatsapp {
-    text-align: center;
-    margin: 20px;
-}
-
-.whatsapp a {
-    background: #25D366;
-    padding: 15px 25px;
-    color: white;
-    border-radius: 30px;
-    text-decoration: none;
-    font-weight: bold;
+/* LINK */
+a {
+    color: gold;
 }
 </style>
 
@@ -164,10 +169,10 @@ button {
     <h2>Book Wedding Shoot</h2>
 
     <form action="https://formsubmit.co/dev636741@gmail.com" method="POST">
-        <input type="text" name="name" placeholder="Name" required><br>
-        <input type="text" name="phone" placeholder="Phone" required><br>
-        <input type="email" name="email" placeholder="Email" required><br>
-        <textarea name="message" placeholder="Message"></textarea><br>
+        <input type="text" name="name" placeholder="Your Name" required><br>
+        <input type="text" name="phone" placeholder="Phone Number" required><br>
+        <input type="email" name="email" placeholder="Email Address" required><br>
+        <textarea name="message" placeholder="Your Message"></textarea><br>
         <button type="submit">Book Now</button>
     </form>
 </div>
@@ -181,21 +186,32 @@ button {
 
 <script>
 const data = {
-    wedding: [
-        "https://images.unsplash.com/photo-1523438885200-e635ba2c371e",
-        "https://images.unsplash.com/photo-1519741497674-611481863552",
-        "https://images.unsplash.com/photo-1529634896284-3a61e3d3c8f0"
-    ],
-    cinematic: [
-        "https://images.unsplash.com/photo-1504196606672-aef5c9cefc92",
-        "https://images.unsplash.com/photo-1521334884684-d80222895322",
-        "https://images.unsplash.com/photo-1504384308090-c894fdcc538d"
-    ],
-    reels: [
-        "https://images.unsplash.com/photo-1518770660439-4636190af475",
-        "https://images.unsplash.com/photo-1522202176988-66273c2fd55f",
-        "https://images.unsplash.com/photo-1523966211575-eb4a01e7dd51"
-    ]
+    wedding: {
+        images: [
+            "https://images.unsplash.com/photo-1523438885200-e635ba2c371e",
+            "https://images.unsplash.com/photo-1519741497674-611481863552",
+            "https://images.unsplash.com/photo-1529634896284-3a61e3d3c8f0"
+        ],
+        link: "https://instagram.com/dp_editszz"
+    },
+
+    cinematic: {
+        images: [
+            "https://images.unsplash.com/photo-1504196606672-aef5c9cefc92",
+            "https://images.unsplash.com/photo-1521334884684-d80222895322",
+            "https://images.unsplash.com/photo-1504384308090-c894fdcc538d"
+        ],
+        link: "https://instagram.com/dp_editszz"
+    },
+
+    reels: {
+        images: [
+            "https://images.unsplash.com/photo-1518770660439-4636190af475",
+            "https://images.unsplash.com/photo-1522202176988-66273c2fd55f",
+            "https://images.unsplash.com/photo-1523966211575-eb4a01e7dd51"
+        ],
+        link: "https://instagram.com/dp_editszz"
+    }
 };
 
 function showGallery(type){
@@ -204,15 +220,20 @@ function showGallery(type){
 
     box.innerHTML = "";
 
-    data[type].forEach(img=>{
+    let selected = data[type];
+
+    selected.images.forEach(img=>{
         let image = document.createElement("img");
         image.src = img;
         box.appendChild(image);
     });
 
-    if(type==="wedding") title.innerText="Wedding Photography";
-    if(type==="cinematic") title.innerText="Cinematic Editing";
-    if(type==="reels") title.innerText="Instagram Reels Editing";
+    title.innerHTML = `
+        ${type.toUpperCase()} WORK<br><br>
+        <a href="${selected.link}" target="_blank">
+            👉 View Full Work
+        </a>
+    `;
 }
 
 showGallery("wedding");
