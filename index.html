@@ -13,7 +13,7 @@ body {
     color: white;
 }
 
-/* HERO SECTION */
+/* HERO */
 .hero {
     height: 100vh;
     background: url('https://images.unsplash.com/photo-1523438885200-e635ba2c371e') center/cover;
@@ -26,29 +26,15 @@ body {
 
 .hero h1 {
     font-size: 60px;
-    letter-spacing: 4px;
     color: gold;
     margin: 0;
 }
 
 .hero p {
     font-size: 18px;
-    margin-top: 10px;
     opacity: 0.9;
 }
 
-.btn {
-    margin-top: 20px;
-    padding: 12px 25px;
-    background: gold;
-    color: black;
-    border: none;
-    font-weight: bold;
-    cursor: pointer;
-    border-radius: 5px;
-}
-
-/* SECTION */
 .section {
     padding: 60px 20px;
     text-align: center;
@@ -56,7 +42,6 @@ body {
 
 h2 {
     color: gold;
-    margin-bottom: 20px;
 }
 
 /* SERVICES */
@@ -64,27 +49,46 @@ h2 {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
+    gap: 15px;
 }
 
 .card {
     background: #1a1a1a;
-    margin: 10px;
     padding: 20px;
-    width: 250px;
+    width: 220px;
     border: 1px solid gold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.card:hover {
+    transform: scale(1.05);
+}
+
+/* GALLERY */
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 10px;
+    padding: 20px;
+}
+
+.gallery img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
     border-radius: 10px;
+    border: 2px solid gold;
 }
 
 /* CONTACT */
 .contact {
     background: #111;
     padding: 50px;
-    text-align: center;
 }
 
 a {
     color: gold;
-    text-decoration: none;
 }
 </style>
 
@@ -92,102 +96,99 @@ a {
 
 <body>
 
-<!-- CINEMATIC HERO SLIDESHOW -->
+<!-- HERO -->
 <div class="hero">
-
-    <div class="slideshow">
-
-        <div class="slide active" style="background-image:url('https://images.unsplash.com/photo-1523438885200-e635ba2c371e');"></div>
-
-        <div class="slide" style="background-image:url('https://images.unsplash.com/photo-1519741497674-611481863552');"></div>
-
-        <div class="slide" style="background-image:url('https://images.unsplash.com/photo-1529634896284-3a61e3d3c8f0');"></div>
-
-        <div class="slide" style="background-image:url('https://images.unsplash.com/photo-1504196606672-aef5c9cefc92');"></div>
-
-    </div>
-
-    <div class="hero-content">
-        <h1>DP EDITSZZ</h1>
-        <p>Luxury Wedding Photography | Cinematic Editing | Premium Reels</p>
-    </div>
-
+    <h1>DP EDITSZZ</h1>
+    <p>Luxury Wedding Photography | Cinematic Editing | Premium Reels</p>
 </div>
-<!-- WHATSAPP BUTTON -->
-<div style="text-align:center; margin:30px;">
-    <a href="https://wa.me/918209503939?text=Hi%20DP%20Editszz%2C%20I%20want%20to%20book%20a%20wedding%20shoot" 
-       target="_blank"
-       style="
-       background: #25D366;
-       color: white;
-       padding: 15px 25px;
-       text-decoration: none;
-       font-weight: bold;
-       border-radius: 50px;
-       display: inline-block;
-       font-size: 16px;
-       box-shadow: 0 0 10px rgba(0,0,0,0.5);
-       ">
-       💬 Book on WhatsApp
-    </a>
+
+<!-- WHATSAPP -->
+<div style="text-align:center; margin:20px;">
+<a href="https://wa.me/918209503939?text=Hi%20DP%20Editszz%2C%20I%20want%20to%20book%20a%20wedding%20shoot"
+style="background:#25D366;padding:15px 25px;color:white;border-radius:30px;text-decoration:none;">
+💬 Book on WhatsApp
+</a>
 </div>
+
 <!-- ABOUT -->
 <div class="section">
     <h2>About Us</h2>
-    <p>We create cinematic wedding stories and luxury edits that capture emotions forever.</p>
+    <p>We create cinematic wedding stories and luxury edits.</p>
 </div>
 
 <!-- SERVICES -->
 <div class="section">
     <h2>Our Services</h2>
     <div class="services">
-        <div class="card">Wedding Photography</div>
-        <div class="card">Cinematic Video Editing</div>
-        <div class="card">Instagram Reels Editing</div>
+
+        <div class="card" onclick="showGallery('wedding')">Wedding Photography</div>
+        <div class="card" onclick="showGallery('cinematic')">Cinematic Editing</div>
+        <div class="card" onclick="showGallery('reels')">Instagram Reels</div>
+
     </div>
+</div>
+
+<!-- GALLERY -->
+<div class="section">
+    <h2 id="gallery-title">Our Work</h2>
+    <div class="gallery" id="gallery-box"></div>
+</div>
+
+<!-- BOOKING -->
+<div class="section">
+    <h2>Book Wedding Shoot</h2>
+
+    <form action="https://formsubmit.co/dev636741@gmail.com" method="POST">
+        <input type="text" name="name" placeholder="Name" required><br><br>
+        <input type="text" name="phone" placeholder="Phone" required><br><br>
+        <input type="email" name="email" placeholder="Email" required><br><br>
+        <textarea name="message" placeholder="Message"></textarea><br><br>
+        <button type="submit">Book Now</button>
+    </form>
 </div>
 
 <!-- CONTACT -->
 <div class="contact">
     <h2>Contact</h2>
     <p>Email: dev636741@gmail.com</p>
-    <p>Instagram: <a href="https://instagram.com/dp_editszz">@dp_editszz</a></p>
-    <p>Phone: 8209503939</p>
+    <p>Instagram: @dp_editszz</p>
 </div>
-<!-- BOOKING FORM -->
-<div class="section">
-    <h2>Book Your Wedding Shoot</h2>
 
-    <form class="booking-form" action="https://formsubmit.co/dev636741@gmail.com" method="POST">
+<script>
+const data = {
+    wedding: [
+        "https://images.unsplash.com/photo-1523438885200-e635ba2c371e",
+        "https://images.unsplash.com/photo-1519741497674-611481863552"
+    ],
+    cinematic: [
+        "https://images.unsplash.com/photo-1504196606672-aef5c9cefc92",
+        "https://images.unsplash.com/photo-1521334884684-d80222895322"
+    ],
+    reels: [
+        "https://images.unsplash.com/photo-1518770660439-4636190af475",
+        "https://images.unsplash.com/photo-1522202176988-66273c2fd55f"
+    ]
+};
 
-        <input type="text" name="name" placeholder="Your Name" required>
+function showGallery(type){
+    let box = document.getElementById("gallery-box");
+    let title = document.getElementById("gallery-title");
 
-        <input type="text" name="phone" placeholder="Phone Number" required>
+    box.innerHTML = "";
 
-        <input type="email" name="email" placeholder="Email Address" required>
+    data[type].forEach(img=>{
+        let i = document.createElement("img");
+        i.src = img;
+        box.appendChild(i);
+    });
 
-        <input type="text" name="event_date" placeholder="Wedding Date" required>
+    if(type==="wedding") title.innerText="Wedding Photography";
+    if(type==="cinematic") title.innerText="Cinematic Editing";
+    if(type==="reels") title.innerText="Instagram Reels";
+}
 
-        <textarea name="message" placeholder="Your Message / Requirements" rows="5"></textarea>
+showGallery("wedding");
+</script>
 
-        <button type="submit">Book Now</button>
-
-    </form>
-</div>
 </body>
 </html>
-<!-- GALLERY -->
-<div class="section">
-    <h2>Our Gallery</h2>
-
-    <div class="gallery">
-
-        <img src="https://images.unsplash.com/photo-1523438885200-e635ba2c371e" />
-        <img src="https://images.unsplash.com/photo-1519741497674-611481863552" />
-        <img src="https://images.unsplash.com/photo-1529634896284-3a61e3d3c8f0" />
-        <img src="https://images.unsplash.com/photo-1504196606672-aef5c9cefc92" />
-        <img src="https://images.unsplash.com/photo-1523437372029-2b7c6c0a0a0a" />
-        <img src="https://images.unsplash.com/photo-1522673607200-164d1b6ce486" />
-
-    </div>
-</div>
