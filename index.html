@@ -8,30 +8,33 @@
 <style>
 body {
     margin: 0;
-    font-family: 'Arial', sans-serif;
+    font-family: Arial, sans-serif;
     background: #0b0b0b;
     color: white;
 }
 
-/* HERO */
+/* HERO SECTION */
 .hero {
     height: 100vh;
     background: url('https://images.unsplash.com/photo-1523438885200-e635ba2c371e') center/cover;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     text-align: center;
-    flex-direction: column;
 }
 
 .hero h1 {
-    font-size: 50px;
-    letter-spacing: 3px;
+    font-size: 60px;
+    letter-spacing: 4px;
+    color: gold;
+    margin: 0;
 }
 
 .hero p {
     font-size: 18px;
-    opacity: 0.8;
+    margin-top: 10px;
+    opacity: 0.9;
 }
 
 .btn {
@@ -40,11 +43,12 @@ body {
     background: gold;
     color: black;
     border: none;
-    cursor: pointer;
     font-weight: bold;
+    cursor: pointer;
+    border-radius: 5px;
 }
 
-/* SECTIONS */
+/* SECTION */
 .section {
     padding: 60px 20px;
     text-align: center;
@@ -67,14 +71,15 @@ h2 {
     margin: 10px;
     padding: 20px;
     width: 250px;
-    border-radius: 10px;
     border: 1px solid gold;
+    border-radius: 10px;
 }
 
 /* CONTACT */
 .contact {
     background: #111;
     padding: 50px;
+    text-align: center;
 }
 
 a {
@@ -92,17 +97,14 @@ a {
     <h1>DP EDITSZZ</h1>
     <p>Luxury Wedding Photography | Cinematic Editing | Premium Reels</p>
     <button class="btn" onclick="window.location.href='https://instagram.com/dp_editszz'">
-        Follow on Instagram
+        Follow Instagram
     </button>
 </div>
 
 <!-- ABOUT -->
 <div class="section">
     <h2>About Us</h2>
-    <p>
-        We create cinematic wedding stories, luxury edits, and premium photography 
-        that capture emotions forever.
-    </p>
+    <p>We create cinematic wedding stories and luxury edits that capture emotions forever.</p>
 </div>
 
 <!-- SERVICES -->
